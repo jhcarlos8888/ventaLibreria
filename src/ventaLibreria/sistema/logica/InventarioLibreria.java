@@ -65,6 +65,22 @@ public class InventarioLibreria {
 	
 	
 	
+	public List<Libros> recorrerListaLibros(){
+		
+		for(int i = 0; i < lstLibros.size(); i++) { 
+			  System.out.println("--------------------------Campo Libro-------------------------------------------------------------------------" ); 
+			  Libros totalLibros = lstLibros.get(i); 
+			  System.out.println("Campo " + i+"," + " Tipo Producto: "+ totalLibros.getTipoProducto()+"," + " Nombre: " + totalLibros.getNombreProducto()+"," + " Cantidad de libros: " +totalLibros.getCantidadProducto()+"," + " Precio: " + totalLibros.getPrecioProducto()+"," + " Autor: " + totalLibros.getAutorProducto()+"," + " Edicion: " + totalLibros.getEdicionProducto()+"," + " Referencia: " +totalLibros.getReferenciaProducto()+ " ");   
+			  System.out.println(); 
+		   }
+		return lstLibros;
+		
+	}
+	
+	
+	
+	
+	
 	
 	//Este metodo es para obtener un objeto de la lista Libros si coincide el nombre pasado por parametros
 	//el cual me retornara el nodo que fue consultado en la lista lstLibros

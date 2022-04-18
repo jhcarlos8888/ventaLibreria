@@ -145,6 +145,17 @@ public class BibliotecaImpl implements IBiblioteca {
 
 
 
+	@Override
+	public List<Libros> recorrerLibros() {
+		// TODO Auto-generated method stub
+		
+		
+		return inventariolibreria.recorrerListaLibros();
+	}
+
+
+
+
 
 
 	

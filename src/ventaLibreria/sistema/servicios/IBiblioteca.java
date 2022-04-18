@@ -25,7 +25,8 @@ public interface IBiblioteca {
 	//Se crea un metodo que retorna un objeto de clase Libros y recibe como parametros un String 
 		public Libros consultarLibroByNombre(String nombre);		
 		
-		
+	
+		public List<Libros> recorrerLibros();
 		
 	/*** Metodos para categoria Revistas */	
 		

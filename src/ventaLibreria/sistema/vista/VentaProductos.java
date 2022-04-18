@@ -16,7 +16,7 @@ public class VentaProductos {
 
 	
 	//se declara atributo scanner estatico para realizar ingresos por consola dentro del programa
-	private static Scanner scanner;
+	//private static Scanner scanner;
 
 	
 	
@@ -119,7 +119,7 @@ public class VentaProductos {
 		//Se declara un objeto Scanner para utilizarlo posteriormente en las opciones que se debe de 
 		//recibir datos por el usuario
 
-		scanner = new Scanner(System.in);
+		
 		
 		
 		
@@ -143,18 +143,22 @@ public class VentaProductos {
 			// Variable Scanner para obtener datos de opcion categorias
 			
 	
-			escogerOpcionCategorias = scanner.nextInt();
+			escogerOpcionCategorias = new Scanner(System.in).nextInt();
 			
 			
 			
 
 			// Comienzo Swith con variable guardada Menu principal
 			switch (escogerOpcionCategorias) {
+			
+			
 
 			// ******************************************************** CATEGORIA LIBROS ***********************************************************************
 
 			case 1:
 
+				
+				
 				// Metodo do-while Menu categoria Libros
 				do {
 					System.out.println();
@@ -172,7 +176,7 @@ public class VentaProductos {
 					System.out.print("ingrese opcion:  ");
 
 					// Variable que recoge la opcion de menu crud Libros
-					escogerOpcionCrudLibros = scanner.nextInt();
+					escogerOpcionCrudLibros = new Scanner(System.in).nextInt();
 
 					switch (escogerOpcionCrudLibros) {
 
@@ -187,13 +191,13 @@ public class VentaProductos {
 						System.out.println();
 
 						System.out.println("Nombre de Libro: ");
-						String nombreProducto = scanner.nextLine();
+						String nombreProducto = new Scanner(System.in).nextLine();
 
 						System.out.println("Cantidad de libros a agregar: ");
-						int cantidadProducto = scanner.nextInt();
+						int cantidadProducto = new Scanner(System.in).nextInt();
 
 						System.out.println("Cual es el precio del libro: ");
-						float precioProducto = scanner.nextFloat();
+						float precioProducto = new Scanner(System.in).nextFloat();
 						
 						
 						//Se llama a la interfas IBiblioteca y a su metodo adicionar libro para agregar un nuevo libro
@@ -219,8 +223,13 @@ public class VentaProductos {
 						System.out.println("Listado de libros actuales, cantidad: " + lstLibros.size()); 
 						System.out.println();
 						
-						
 							
+						//System.out.println("Listado desde la interfaz ");
+						
+							//operacionesProductos.recorrerLibros();
+							
+					     System.out.println("Listado desde la interfaz Final");
+						
 							for(int i = 0; i < lstLibros.size(); i++) { 
 								  System.out.println("--------------------------Campo Libro-------------------------------------------------------------------------" ); 
 								  Libros totalLibros = lstLibros.get(i); 
@@ -237,17 +246,17 @@ public class VentaProductos {
 							  
 							  
 							  
-							  int campolibroModificar = scanner.nextInt();
+							  int campolibroModificar = new Scanner(System.in).nextInt();
 							  
 							
 							  System.out.println("Nombre de Libro: "); 
-							  String newNombreProducto = scanner.nextLine();
+							  String newNombreProducto = new Scanner(System.in).nextLine();
 							  
 							  System.out.println("Cantidad de libros a agregar: "); 
-							  int newCantidadProducto = scanner.nextInt();
+							  int newCantidadProducto = new Scanner(System.in).nextInt();
 							  
 							  System.out.println("Cual es el precio del libro: "); 
-							  float newPrecioProducto = scanner.nextFloat();
+							  float newPrecioProducto = new Scanner(System.in).nextFloat();
 							  
 							  
 							  lstLibros.get(campolibroModificar).setNombreProducto(newNombreProducto);
@@ -293,7 +302,8 @@ public class VentaProductos {
 							  
 							  
 							  
-							  int campolibroEliminar = scanner.nextInt();
+							  
+							  int campolibroEliminar = new Scanner(System.in).nextInt();
 							  
 							  System.out.println(); 
 							  System.out.println("Libro eliminado de la base, "+ "Registro "+lstLibros.get(campolibroEliminar));
@@ -369,14 +379,14 @@ public class VentaProductos {
 							  
 							 
 							  
-							  	  int campolibroVender = scanner.nextInt();
+							  	  int campolibroVender = new Scanner(System.in).nextInt();
 							  
 							 
 								  System.out.println();
 								  System.out.println("Cuantas unidades quiere vender de ese libro ? ");
 								  System.out.println();
 								  
-								  int cantidadProductoVender = scanner.nextInt();
+								  int cantidadProductoVender = new Scanner(System.in).nextInt();
 								  
 								  
 								  int cantidadActualLibro = lstLibros.get(campolibroVender).getCantidadProducto();
@@ -505,16 +515,16 @@ public class VentaProductos {
 							System.out.println("Indique el numero del campo donde se encuentra la revista a modificar");
 							System.out.println();
 
-							int campoRevistaModificar = scanner.nextInt();
+							int campoRevistaModificar = new Scanner(System.in).nextInt();
 
 							System.out.println("Nombre de revista: ");
-							String newNombreProducto = scanner.nextLine();
+							String newNombreProducto = new Scanner(System.in).nextLine();
 
 							System.out.println("Cantidad de revistas a agregar: ");
-							int newCantidadProducto = scanner.nextInt();
+							int newCantidadProducto = new Scanner(System.in).nextInt();
 
 							System.out.println("Cual es el precio de la revista: ");
-							float newPrecioProducto = scanner.nextFloat();
+							float newPrecioProducto = new Scanner(System.in).nextFloat();
 
 							lstRevistas.get(campoRevistaModificar).setNombreProducto(newNombreProducto);
 
@@ -556,7 +566,7 @@ public class VentaProductos {
 							System.out.println("Indique el numero del campo donde se encuentra la revista a eliminar");
 							System.out.println();
 
-							int campoRevistaEliminar = scanner.nextInt();
+							int campoRevistaEliminar = new Scanner(System.in).nextInt();
 
 							System.out.println();
 							System.out.println(
@@ -631,13 +641,13 @@ public class VentaProductos {
 							System.out.println("Indique el numero del campo: ");
 							System.out.println();
 
-							int campoRevistaVender = scanner.nextInt();
+							int campoRevistaVender = new Scanner(System.in).nextInt();
 
 							System.out.println();
 							System.out.println("Cuantas unidades quiere vender de esa revista ? ");
 							System.out.println();
 
-							int cantidadProductoRevistaVender = scanner.nextInt();
+							int cantidadProductoRevistaVender = new Scanner(System.in).nextInt();
 
 							int cantidadActualRevista = lstRevistas.get(campoRevistaVender).getCantidadProducto();
 
@@ -765,16 +775,16 @@ public class VentaProductos {
 							System.out.println("Indique el numero del campo donde se encuentra el articulo a modificar");
 							System.out.println();
 
-							int campolArtModificar = scanner.nextInt();
+							int campolArtModificar = new Scanner(System.in).nextInt();
 
 							System.out.println("Nombre de articulo cientifico: ");
-							String newNombreProducto = scanner.nextLine();
+							String newNombreProducto = new Scanner(System.in).nextLine();
 
 							System.out.println("Cantidad de articulos a agregar: ");
-							int newCantidadProducto = scanner.nextInt();
+							int newCantidadProducto = new Scanner(System.in).nextInt();
 
 							System.out.println("Cual es el precio del articulo: ");
-							float newPrecioProducto = scanner.nextFloat();
+							float newPrecioProducto = new Scanner(System.in).nextFloat();
 
 							lstArtCientificos.get(campolArtModificar).setNombreProducto(newNombreProducto);
 
@@ -821,7 +831,7 @@ public class VentaProductos {
 							System.out.println("Indique el numero del campo donde se encuentra el articulo a eliminar");
 							System.out.println();
 
-							int campoArtEliminar = scanner.nextInt();
+							int campoArtEliminar = new Scanner(System.in).nextInt();
 
 							System.out.println();
 							System.out.println("Libro eliminado de la base, " + "Registro " + lstArtCientificos.get(campoArtEliminar));
@@ -900,13 +910,13 @@ public class VentaProductos {
 							System.out.println("Indique el numero del campo: ");
 							System.out.println();
 
-							int campoArtVender = scanner.nextInt();
+							int campoArtVender = new Scanner(System.in).nextInt();
 
 							System.out.println();
 							System.out.println("Cuantas unidades quiere vender de ese articulo ? ");
 							System.out.println();
 
-							int cantidadProductoVender = scanner.nextInt();
+							int cantidadProductoVender = new Scanner(System.in).nextInt();
 
 							int cantidadActualArt = lstArtCientificos.get(campoArtVender).getCantidadProducto();
 
