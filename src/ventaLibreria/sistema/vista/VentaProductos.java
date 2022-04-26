@@ -15,8 +15,7 @@ import ventaLibreria.sistema.servicios.IBiblioteca;
 public class VentaProductos {
 
 	
-	//se declara atributo scanner estatico para realizar ingresos por consola dentro del programa
-	//private static Scanner scanner;
+	
 
 	
 	
@@ -29,7 +28,7 @@ public class VentaProductos {
 		/***
 		 *  Notas adicionales del programa para realizar operaciones
 		 * 	
-		 *  <h3>Codigo para traer un objeto por medio del nombre</h3>
+		 *  Codigo para traer un objeto por medio del nombre
 		 *  
 		 *  Esta linea de codigo es para traer un objeto de una lista Libros por medio de su nombre 
 			Si el nombre entregado por parametros coincide con el de la lista lstLibros se guardara en la variable guardarObjetoByNombre
@@ -101,7 +100,7 @@ public class VentaProductos {
 		List<Revistas> lstRevistas = operacionesProductos.obtenerInventarioRevistas();
 		
 		
-		//List<Productos> lstArtCientificos = new ArrayList<Productos>();
+		
 
 		
 		// Articulos agredados cuando inicia el programa
@@ -115,14 +114,7 @@ public class VentaProductos {
 		
 		// -------------------------Comienzo de Menus para realizar operaciones--------------
 
-		
-		//Se declara un objeto Scanner para utilizarlo posteriormente en las opciones que se debe de 
-		//recibir datos por el usuario
 
-		
-		
-		
-		
 		
 		// Metodo do-While para mostrar siempre el menu Principal
 		do {
@@ -141,8 +133,6 @@ public class VentaProductos {
 
 			
 			// Variable Scanner para obtener datos de opcion categorias
-			
-	
 			escogerOpcionCategorias = new Scanner(System.in).nextInt();
 			
 			
@@ -226,7 +216,7 @@ public class VentaProductos {
 							
 						//System.out.println("Listado desde la interfaz ");
 						
-							//operacionesProductos.recorrerLibros();
+						//operacionesProductos.recorrerLibros();
 							
 					     System.out.println("Listado desde la interfaz Final");
 						
@@ -922,16 +912,14 @@ public class VentaProductos {
 
 							int operacionRestaArt = (cantidadActualArt - cantidadProductoVender);
 
-							// Asignacion de nueva cantidad de articulos en la lista articulos cientificos
-							// segun el campos seleccionado
+							
+							// Asignacion de nueva cantidad de articulos en la lista articulos cientificos segun el campo seleccionado
 							lstArtCientificos.get(campoArtVender).setCantidadProducto(operacionRestaArt);
 
-							System.out.println("Le quedan " + operacionRestaArt + " articulos , del producto "
-									+ lstArtCientificos.get(campoArtVender).getNombreProducto());
+							System.out.println("Le quedan " + operacionRestaArt + " articulos , del producto " + lstArtCientificos.get(campoArtVender).getNombreProducto());
 
 							System.out.println();
-							System.out.println("Articulo vendido de la base, Registro de venta: "
-									+ lstArtCientificos.get(campoArtVender));
+							System.out.println("Articulo vendido de la base, Registro de venta: " + lstArtCientificos.get(campoArtVender));
 							System.out.println();
 							
 						}else {
