@@ -80,9 +80,9 @@ public class VentaProductos {
 		
 		// Libros agregados cuando arranca el programa
 
-		operacionesProductos.adicionarLibro(Libros.tipoProductoLibro, "Cien años de Soledad", 7, 87000f,Libros.AutorLibro, Libros.EdicionLibro, Libros.tipoProductoLibro);
-		operacionesProductos.adicionarLibro(Libros.tipoProductoLibro, "El Coronel no tiene quien le escriba", 3, 36000f,Libros.AutorLibro, Libros.EdicionLibro, Libros.tipoProductoLibro);
-		operacionesProductos.adicionarLibro(Libros.tipoProductoLibro, "La Odisea", 5, 125000f, Libros.AutorLibro,Libros.EdicionLibro, Libros.tipoProductoLibro);
+		operacionesProductos.adicionarLibro("Libro", "Cien años de Soledad", 7, 87000f,"Juan Carlos Herrera Blandon", 2021, "Ref523");
+		operacionesProductos.adicionarLibro("Libro", "El Coronel no tiene quien le escriba", 3, 36000f,"Juan Carlos Herrera Blandon", 2000, "Ref524");
+		operacionesProductos.adicionarLibro("Libro", "La Odisea", 5, 125000f, "Juan Carlos Herrera Blandon",1994, "Ref525");
 		
 		
 		//Luego de agregar los libros por defecto llamamos la lista que se encuentra en la clase inventario para poder manipularla
@@ -92,8 +92,8 @@ public class VentaProductos {
 		
 		// Revistas agregadas cuando arranca el programa
 		
-		operacionesProductos.adicionarRevista(Revistas.tipoProductoRevista, "National Geographi", 3, 26000f, Revistas.Autor,Revistas.Edicion, Revistas.referenciaProductoRevista);
-		operacionesProductos.adicionarRevista(Revistas.tipoProductoRevista, "Motor", 5, 15000f, Revistas.Autor,Revistas.Edicion, Revistas.referenciaProductoRevista);
+		operacionesProductos.adicionarRevista("Revista", "National Geographi", 3, 26000f, "Hernesto Henao",2015, "Ref125");
+		operacionesProductos.adicionarRevista("Revista", "Motor", 5, 15000f, "Hernesto Henao",2023, "Ref126");
 
 		
 		//Luego se llama la lista para poder manipularla dentro del main
@@ -104,8 +104,8 @@ public class VentaProductos {
 
 		
 		// Articulos agredados cuando inicia el programa
-		operacionesProductos.adicionarArtCientifico(ArtCientificos.tipoProductoartCienfico, "Paper sobre Combustión Interna", 2,65000f, ArtCientificos.Autor, ArtCientificos.Edicion,ArtCientificos.referenciaProductoArticuloCientifico);
-		operacionesProductos.adicionarArtCientifico(ArtCientificos.tipoProductoartCienfico,"Paper Programación orienta a Objetos ", 3, 48000f, ArtCientificos.Autor, ArtCientificos.Edicion,ArtCientificos.referenciaProductoArticuloCientifico);
+		operacionesProductos.adicionarArtCientifico("ArtCienficico", "Paper sobre Combustión Interna", 2,65000f, "Franco Ruiz", 2013,"Ref2548");
+		operacionesProductos.adicionarArtCientifico("ArtCienficico","Paper Programación orienta a Objetos ", 3, 48000f, "Franco Ruiz", 2013,"Ref2549");
 	
 		
 		//Se llama la lista de la clase ArtCientificos para poder manipularla 
@@ -179,7 +179,10 @@ public class VentaProductos {
 						System.out.println();
 						System.out.println("Nuevo registro de libro");
 						System.out.println();
-
+						
+						System.out.println("Tipo de Producto: ");
+						String tipoProducto = new Scanner(System.in).nextLine();
+						
 						System.out.println("Nombre de Libro: ");
 						String nombreProducto = new Scanner(System.in).nextLine();
 
@@ -189,13 +192,22 @@ public class VentaProductos {
 						System.out.println("Cual es el precio del libro: ");
 						float precioProducto = new Scanner(System.in).nextFloat();
 						
+						System.out.println("Cual es el autor del libro: ");
+						String autorProducto = new Scanner(System.in).nextLine();
+						
+						System.out.println("Cual es la edicion del libro: ");
+						int edicionProducto = new Scanner(System.in).nextInt();
+						
+						System.out.println("Ingrese la referencia del Libro: ");
+						String referenciaProducto = new Scanner(System.in).nextLine();
+						
 						
 						//Se llama a la interfas IBiblioteca y a su metodo adicionar libro para agregar un nuevo libro
-						operacionesProductos.adicionarLibro(Libros.tipoProductoLibro, nombreProducto, cantidadProducto,precioProducto, Libros.AutorLibro, Libros.EdicionLibro, Libros.tipoProductoLibro);
+						operacionesProductos.adicionarLibro(tipoProducto, nombreProducto, cantidadProducto,precioProducto, autorProducto, edicionProducto, referenciaProducto);
 						
 						
 						System.out.println();
-						System.out.println("Tipo de producto: " + Libros.tipoProductoLibro + " agregado satisfactoriamente");
+						System.out.println("Tipo de producto: (Libro)  agregado satisfactoriamente");
 						System.out.println();
 
 						break; // Final opcion ingresar libro
@@ -257,7 +269,7 @@ public class VentaProductos {
 							  
 							  
 							  System.out.println(); 
-							  System.out.println("Tipo de producto: " + Libros.tipoProductoLibro + " modificado satisfactoriamente");
+							  System.out.println("Tipo de producto:  (Libro) modificado satisfactoriamente");
 							  System.out.println();
 							  
 						}else {
@@ -460,21 +472,34 @@ public class VentaProductos {
 						System.out.println();
 						System.out.println("Nuevo registro de Revista");
 						System.out.println();
-
+						
+						System.out.println("Cual es el tipo de Producto: ");
+						String tipoProducto = new Scanner(System.in).nextLine();
+						
 						System.out.println("Nombre de Revista: ");
 						String nombreProducto = new Scanner(System.in).nextLine();
 
 						System.out.println("Cantidad de Revistas a agregar: ");
 						int cantidadProducto = new Scanner(System.in).nextInt();
 
-						System.out.println("Cual es el precio de la  Revista: ");
+						System.out.println("Cual es el precio de la  revista: ");
 						float precioProducto = new Scanner(System.in).nextFloat();
+						
+						System.out.println("Autor de la revista: ");
+						String autorProducto = new Scanner(System.in).nextLine();
+						
+						System.out.println("Cual es la edicion de la revista: ");
+						int edicionProducto = new Scanner(System.in).nextInt();
+						
+						System.out.println("Ingrese referencia de la revista ");
+						String referenciaProducto = new Scanner(System.in).nextLine();
+						
 
 						//Operacion para adicionar una nueva revista
-						operacionesProductos.adicionarRevista(Revistas.tipoProductoRevista, nombreProducto, cantidadProducto,precioProducto, Revistas.Autor, Revistas.Edicion, Revistas.referenciaProductoRevista);
+						operacionesProductos.adicionarRevista(tipoProducto, nombreProducto, cantidadProducto,precioProducto, autorProducto, edicionProducto, referenciaProducto);
 
 						System.out.println();
-						System.out.println("Tipo de producto: " + Revistas.tipoProductoRevista + " agregada satisfactoriamente");
+						System.out.println("Tipo de producto: (Revista) agregada satisfactoriamente");
 						System.out.println();
 
 						break; // Final opcion ingresar Revista
@@ -523,7 +548,7 @@ public class VentaProductos {
 							lstRevistas.get(campoRevistaModificar).setPrecioProducto(newPrecioProducto);
 
 							System.out.println();
-							System.out.println("Tipo de producto: " + Revistas.tipoProductoRevista + " modificada satisfactoriamente");
+							System.out.println("Tipo de producto: (Revista) modificada satisfactoriamente");
 							System.out.println();
 							
 						}else {
@@ -711,7 +736,11 @@ public class VentaProductos {
 						System.out.println();
 						System.out.println("Nuevo registro de articulo");
 						System.out.println();
-
+						
+						
+						System.out.println("Ingrese el tipo de producto: ");
+						String tipoProducto = new Scanner(System.in).nextLine();
+						
 						System.out.println("Nombre de articulo cientifico: ");
 						String nombreProducto = new Scanner(System.in).nextLine();
 
@@ -720,12 +749,22 @@ public class VentaProductos {
 
 						System.out.println("Cual es el precio del articulo cientifico: ");
 						float precioProducto = new Scanner(System.in).nextFloat();
-
+						
+						
+						System.out.println("Autor de articulo cientifico: ");
+						String autorProducto = new Scanner(System.in).nextLine();
+						
+						System.out.println("Cual es la edicion del articulo: ");
+						int edicionProducto = new Scanner(System.in).nextInt();
+						
+						System.out.println("Referencia de  articulo cientifico: ");
+						String referenciaProducto = new Scanner(System.in).nextLine();
+						
 						//Codigo para adicionar un nuevo articulo cientifico
-						operacionesProductos.adicionarArtCientifico(ArtCientificos.tipoProductoartCienfico, nombreProducto, cantidadProducto, precioProducto, ArtCientificos.Autor, ArtCientificos.Edicion, ArtCientificos.referenciaProductoArticuloCientifico);
+						operacionesProductos.adicionarArtCientifico(tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto);
 
 						System.out.println();
-						System.out.println("Tipo de producto: " + ArtCientificos.tipoProductoartCienfico + " agregado satisfactoriamente");
+						System.out.println("Tipo de producto: (Articulo Cientifico)  agregado satisfactoriamente");
 						System.out.println();
 
 						break; // Final opcion ingresar Articulo Cientifico
@@ -783,7 +822,7 @@ public class VentaProductos {
 							lstArtCientificos.get(campolArtModificar).setPrecioProducto(newPrecioProducto);
 
 							System.out.println();
-							System.out.println("Tipo de producto: " + ArtCientificos.tipoProductoartCienfico + " modificado satisfactoriamente");
+							System.out.println("Tipo de producto: (Acticulo Cientifico) modificado satisfactoriamente");
 							System.out.println();
 							
 						}else {

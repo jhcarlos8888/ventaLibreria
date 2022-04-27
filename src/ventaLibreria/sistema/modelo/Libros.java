@@ -3,18 +3,6 @@ package ventaLibreria.sistema.modelo;
 public class Libros extends Productos {
 
 	
-	// Atributos Constantes
-	public static final String AutorLibro ="Juan Carlos Herrera Blandon";
-
-	public static final int EdicionLibro = 2022;
-
-	public static final String tipoProductoLibro = "Libro";
-
-	public static final String referenciaProductoLibro = "RPL";
-
-	
-	
-	
 	
 	
 	public Libros() {
@@ -30,6 +18,10 @@ public class Libros extends Productos {
 		
 	}
 
+	
+	
+	
+	
 	
 
 	

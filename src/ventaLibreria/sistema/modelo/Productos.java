@@ -21,8 +21,14 @@ public class Productos {
 	// Creacion de constructor de clase Productos
 
 	public Productos() {
-		super();
-
+		this.tipoProducto = new String();
+		this.nombreProducto = new String();
+		this.cantidadProducto = 0;
+		this.precioProducto = 0f;
+		this.autorProducto = new String();
+		this.edicionProducto = 0;
+		this.referenciaProducto = new String();
+		
 	}
 
 	public Productos(String tipoProducto, String nombreProducto, int cantidadProducto, float precioProducto,

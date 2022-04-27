@@ -4,14 +4,7 @@ package ventaLibreria.sistema.modelo;
 
 public class ArtCientificos extends Productos {
 	
-	//Atributos Constantes
-	public static final String Autor = "Angela Yurany Restrepo";
-	
-	public static final int Edicion = 2006;
-	
-	public static final String tipoProductoartCienfico = "Articulo Cientifico";
-	
-	public static final String referenciaProductoArticuloCientifico = "RPAC";
+
 
 	
 	
