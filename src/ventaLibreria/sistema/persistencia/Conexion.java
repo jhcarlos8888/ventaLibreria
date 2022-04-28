@@ -43,18 +43,9 @@ public class Conexion {
 
 	
 	
-	//se crea un metodo que devolvera un objeto tipo Connection
-	//llamado getConexion, este trabajara con el atributo con 
-	//creado anteriormente
-	
+
+	//Metodo para iniciar una conexion de forma clasica, algo mas manual
 	public void iniciarConexion() {
-		
-		
-		//Se crea una condicional donde pregunta si this.con esta vacio entonces crear
-		//una nueva conexion a base de datos donde se tendran los datos para poder 
-		//acceder si con == a null si no tiene nada entonces se ejecuta el codigo
-		//es decir si no se tiene una conexion a base de datos
-		
 			
 			
 			
@@ -97,7 +88,7 @@ public class Conexion {
 	
 	
 	
-	
+	//Metodo que me iniciara una conexion tipo Pool
 	@SuppressWarnings("static-access")
 	public void iniciarConexionPool() {
 		
@@ -107,7 +98,7 @@ public class Conexion {
 	
 	
 	
-	
+	//Metodo para activar una conexion basica sin tener un pool de conexiones
 	public Connection getConexion() {
 		
 		if(this.con == null) {
@@ -116,6 +107,7 @@ public class Conexion {
 		
 		return this.con;
 	}
+	
 	
 	
 	//Este metodo cierra una conexion a base de datos
@@ -133,6 +125,7 @@ public class Conexion {
 			e.printStackTrace();
 		}		
 	}
+	
 	
 	
 	
@@ -180,6 +173,8 @@ public class Conexion {
 	
 	
 	
+	
+	
 	//getPreparedStatement es practicamente lo mismo que hace 
 	//el metodo getStatement, pero al crearse un metodo PreparedStatement
 	//no crea autamaticamente un constructor vacio, entonces tiene que recibir
@@ -222,6 +217,8 @@ public class Conexion {
 			e.printStackTrace();
 		}		
 	}
+	
+	
 	
 	
 	//Ahora se sobrecargara un metodo creado anteriormente llamado cerrarConexion

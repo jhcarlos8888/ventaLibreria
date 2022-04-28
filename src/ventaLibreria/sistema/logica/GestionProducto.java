@@ -45,6 +45,7 @@ public class GestionProducto {
 	
 	
 	
+	//Metodo para obtener un libro segun el tipo de referencia que se entregue por parametros
 	public Libros obtenerLibroByRef(String referenciaProducto) {
 		
 			
@@ -123,7 +124,7 @@ public class GestionProducto {
 	
 	
 	
-	
+	//Metodo para eliminar un libro de la base de datos por medio de la referencia
 	public Libros quitarLibro(String referenciaProducto) {
 		
 		
@@ -145,7 +146,7 @@ public class GestionProducto {
 	
 	
 	
-	
+	//Metodo para vender un libro, esto resta la cantidad actual con la cantidad ingresada por parametro
 	public Libros ventaLibro(String referenciaProducto, int cantidadVenta)
 	{
 		

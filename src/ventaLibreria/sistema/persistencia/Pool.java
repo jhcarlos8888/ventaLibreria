@@ -8,8 +8,9 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 
-//Libreria
 
+
+//Clase que manejara una conexion Pool a base de datos
 public class Pool {
 	
 	
@@ -21,7 +22,8 @@ public class Pool {
 	//conexiones a base de datos,es quien libera y ocupa 
 	private static HikariDataSource ds;
 	
-
+	
+	//atributo tipo clase para poder manipular el Pool de una forma mas ordenada
 	private static Pool instancia;
 	
 	
@@ -33,6 +35,7 @@ public class Pool {
 	}
 	
 	
+	//Se crea una instancia de clase para activar una conexion
 	public static Pool getInstancia() {
 		
 		if(instancia == null)
@@ -41,10 +44,10 @@ public class Pool {
 		return instancia;
 	}
 	
-	//4873
+
 	
 	
-	
+	//Metodo para iniciar el Pool de Conexiones
 	public static void iniciarPool() {
 
 		config = new HikariConfig();
@@ -67,6 +70,8 @@ public class Pool {
 		ds = new HikariDataSource(config);
 		
 	}
+	
+	
 	
 	
 	//Este metodo es para poder realizar una conexion a base de datos
@@ -120,7 +125,7 @@ public class Pool {
 	
 	
 	//Metodo para cerrar o eliminar el objeto que almacena la cantidad 
-	//de conexiones y 
+	//de conexiones 
 	public static void cerrarDataSource() {
 		
 		if(ds != null)

@@ -173,7 +173,7 @@ public class VentaProductos {
 						System.out.println("Nuevo registro de libro");
 						System.out.println();
 						
-						System.out.println("Ingrese numero 1 para crear un producto libro en base de datos: ");
+						System.out.println("Ingrese el numero 1 para crear un producto libro en base de datos: ");
 						int tipoProducto = new Scanner(System.in).nextInt();
 						
 						System.out.println("Nombre de Libro: ");
@@ -182,16 +182,16 @@ public class VentaProductos {
 						System.out.println("Cantidad de libros a agregar: ");
 						int cantidadProducto = new Scanner(System.in).nextInt();
 
-						System.out.println("Cual es el precio del libro: ");
+						System.out.println("Cual es el precio del libro(Ingrese solamente numeros): ");
 						float precioProducto = new Scanner(System.in).nextFloat();
 						
 						System.out.println("Cual es el autor del libro: ");
 						String autorProducto = new Scanner(System.in).nextLine();
 						
-						System.out.println("Cual es la edicion del libro: ");
+						System.out.println("Cual es la edicion del libro(Ingrese el año de creacion): ");
 						int edicionProducto = new Scanner(System.in).nextInt();
 						
-						System.out.println("Ingrese la referencia del Libro: ");
+						System.out.println("Ingrese la referencia del Libro(Se ingrea un codigo Numeros y Letras): ");
 						String referenciaProducto = new Scanner(System.in).nextLine();
 						
 						
@@ -221,9 +221,6 @@ public class VentaProductos {
 						
 						
 						
-						
-					     System.out.println("Listado desde la interfaz Final");
-						
 							for(int i = 0; i < lstLibros.size(); i++) { 
 								  System.out.println("--------------------------Campo Libro-------------------------------------------------------------------------" ); 
 								  Libros totalLibros = lstLibros.get(i); 
@@ -251,13 +248,13 @@ public class VentaProductos {
 							  System.out.println("nueva cantidad de libros a agregar: "); 
 							  int newCantidadProducto = new Scanner(System.in).nextInt();
 							  
-							  System.out.println("Cual es el precio del libro: "); 
+							  System.out.println("Cual es el precio del libro:(Ingrese solamente numeros) "); 
 							  float newPrecioProducto = new Scanner(System.in).nextFloat();
 							  
 							  System.out.println("Nuevo autor de Libro: "); 
 							  String newAutorProducto = new Scanner(System.in).nextLine();
 							  
-							  System.out.println("Nueva edicion del libro: "); 
+							  System.out.println("Nueva edicion del libro:(Ingrese el año de creacion) "); 
 							  int newEdicionProducto = new Scanner(System.in).nextInt();
 							  
 							  
@@ -271,7 +268,7 @@ public class VentaProductos {
 							  System.out.println();
 							  
 						}else {
-							System.out.println("No tenemos ningun libro a Modificar, ingrese por favor algun libro");
+							System.out.println("No tenemos ningun libro a modificar, ingrese por favor algun libro");
 						}
 						
 					

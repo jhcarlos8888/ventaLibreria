@@ -74,7 +74,7 @@ public class BibliotecaImpl implements IBiblioteca {
 	}
 	
 	
-
+	//Metodo para actualizar lo valores principales de un registro de libros
 	@Override
 	public Libros actualizarLibro(String nombreProducto, int cantidadProducto, float precioProducto,
 			String autorProducto, int edicionProducto, String referenciaProducto) {
@@ -86,7 +86,7 @@ public class BibliotecaImpl implements IBiblioteca {
 	}
 	
 	
-	
+	//Metodo para eliminar un registro de libro entregando su referencia 
 	@Override
 	public Libros eliminarLibro(String referenciaProducto) {
 		
@@ -97,7 +97,8 @@ public class BibliotecaImpl implements IBiblioteca {
 	}
 
 
-	
+	//Metodo para vender un libro, este permite restar la cantidad ingresada por parametros
+	//de la cantidad que se tiene en la base de datos
 	@Override
 	public Libros venderLibro(String referenciaProducto, int cantidadVenta) {
 		
@@ -110,6 +111,7 @@ public class BibliotecaImpl implements IBiblioteca {
 	
 
 	
+	/***Solamente se consultara la informacion dentro de una lista actualmente con informacion */
 	//Este metodo me retornara un objeto de clase Libros donde se le pasara como parametros una variable String
 	//al pasarle el parametros de tipo string el me retornara el resultado de una operacion de un metodo que se encuentra en 
 	//la clase de inventariolibreria
@@ -129,6 +131,9 @@ public class BibliotecaImpl implements IBiblioteca {
 	}
 
 
+	
+	
+	
 	/*** Metodos para categoria Revistas */	
 
 	//Metodo para agregar un objeto revistas a el inventario de la libreria

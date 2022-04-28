@@ -36,14 +36,17 @@ public interface IBiblioteca {
 		public List<Libros> adicionarBaseLibrosToList(int tipoProducto);
 		
 		
-		//Se crea un metodo para vender un libro, en otras palabras se modifica la cantidad actual de un libro
+	//Se crea un metodo para vender un libro, en otras palabras se modifica la cantidad actual de un libro
 		public Libros venderLibro(String referenciaProducto,int cantidadVenta);
 		
 		
 		
-	
+	/***Solo funciona con datos dentro de una lista*/
 	//Se crea un metodo que retorna un objeto de clase Libros y recibe como parametros un String 
 		public Libros consultarLibroByNombre(String nombre);		
+		
+		
+	
 		
 		
 		

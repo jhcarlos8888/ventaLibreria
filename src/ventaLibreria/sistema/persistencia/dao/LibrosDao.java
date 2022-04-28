@@ -20,6 +20,7 @@ public class LibrosDao {
 
 	
 	
+	//Constructor de clase
 	public LibrosDao(){
 		
 	}
@@ -85,26 +86,25 @@ public class LibrosDao {
 	
 	
 	
-	//Metodo para realizar una consulta donde me recorrera la tabla vehiculo de la base de datos
-	//en busca de una placa que sea de una vehiculo tipo carro
-
+	
+	//Metodo para poder buscar un libro segun la referencia que se pase como parametros
 	public Libros buscarLibroByReferencia(String referenciaProducto) {
 		
 		Conexion conexion = new Conexion();
 		//Se crea una variable tipo String que tendra almacenado el comando SQL 
-		//donde pedira buscar un carro de la base de datos prueba de la tabla vehiculo, donde 
-		//se le dara una condicion que el carro que le devuelva sera uno que tenga una placa
-		//que se le pasa como parametro y que tenga un campo de tipo vehiculo 1 que en otras
-		//palabas 1 es igual a tipo de vehiculo carro. 
+		//donde pedira buscar un libro de la base de datos baselibreria de la tabla producto, donde 
+		//se le dara una condicion que el libro que le devuelva sera uno que tenga una referencia
+		//que se le pasa como parametro y que tenga un campo de tipo libro 1 que en otras
+		//palabas 1 es igual a tipo de producto libro. 
 		//si la busqueda cumple con esos requisitos se retorna los datos a buscar
 		String sql = "SELECT tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto FROM " + 
 						"baselibreria.producto WHERE referenciaProducto = '" + referenciaProducto + "' AND tipoProducto = 1";
 		
-		//Se crea una variable tipo carro llamado car y se asigna null
+		//Se crea una variable tipo libro llamado lib y se asigna null
 		Libros lib = null;
 		
 		//Se crea una variable tipo Statement llamada st donde sera igual a el atributo 
-		//conexion creado dentro de la clase CarroDao y que llamara a el metodo
+		//conexion creado dentro de la clase LibrosDao y que llamara a el metodo
 		//getStatement donde me creara un objeto para poder manipular la base de datos
 		
 		Statement st = conexion.getStatement();
@@ -113,7 +113,7 @@ public class LibrosDao {
 			
 			//Se crea un objeto tipo Resulset llamado rs para guardar la busqueda 
 			//que se almacenara en el objeto Statement st donde se le pasara como busqueda 
-			//la cadena llamada sql anteriormente creada para buscar un carro especificamente
+			//la cadena llamada sql anteriormente creada para buscar un libro especificamente
 			ResultSet rs = st.executeQuery(sql);	
 			
 			//Al momento de nosotros crear una variable para guardar la busqueda 
@@ -122,14 +122,14 @@ public class LibrosDao {
 			//y le diremos que empiece desde el primer registro de la tabla con el comando
 			// llamado next() que nos ayudara a posicionarnos al inicio de la tabla
 			while(rs.next()) {
-				//llamaremos al objeto car creado anteriormente y lo inicializaremos
+				//llamaremos al objeto lib creado anteriormente y lo inicializaremos
 				//lo prepararemos para manipular sus atributos y metodos
 				//y dentro de este nuevo objeto ALMACENAREMOS  la consulta a base de datos
 				lib = new Libros();
 				
 				//asi que dentro este objeto le asignaremos los valores que se encontraron 
-				//en la busqueda que se realizo en la base de datos de la tabla vehiculo
-				// se asigna una placa donde es la placa obtenida por la variable rs.getString"placa"
+				//en la busqueda que se realizo en la base de datos de la tabla producto
+				// se asigna una referencia donde es la referencia obtenida por la variable rs.getString"referenciaProducto"
 				//y asi seguidamente 
 				lib.setTipoProducto(rs.getInt("tipoProducto"));
 				lib.setNombreProducto(rs.getString("nombreProducto"));
@@ -149,9 +149,9 @@ public class LibrosDao {
 			//manipular la base de datos
 			conexion.cerrarConexion(st);
 		}
-		//Despues de toda esa consulta retornaremos la instancia de tipo carro con
-		//todos los valores anteriormente buscados dentro de la tabla vehiculo
-		//el objeto car tendra entonces solamente la consulta realizada
+		//Despues de toda esa consulta retornaremos la instancia de tipo libro con
+		//todos los valores anteriormente buscados dentro de la tabla producto
+		//el objeto lib tendra entonces solamente la consulta realizada
 		return lib;
 	}
 	
@@ -159,7 +159,7 @@ public class LibrosDao {
 	
 	
 	//Metodo para traer todos los registros de una base de datos y almacenarlos dentro de una 
-	//lista cuando tienen una marca especifica
+	//lista cuando tienen un tipo de producto especifico
 	
 	public List<Libros> agregarProductosTOlstLibros(int tipoProducto) {
 		
@@ -170,11 +170,11 @@ public class LibrosDao {
 		String sql = "SELECT tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto FROM " + 
 						"baselibreria.producto WHERE tipoProducto = " + tipoProducto ;
 		
-		//Se crea una lista de clase Carro llamada lstCarros
+		//Se crea una lista de clase Libros llamada lstLibros
 		//y se instancia para podela manipular
 		
 		List<Libros> lstLibros = new ArrayList<Libros>();
-		//Se crea un objeto de clase Carro llamado car y se asigna un valor null
+		//Se crea un objeto de clase Libros llamado lib y se asigna un valor null
 		Libros lib = null;
 		
 		//Se crea un objeto de tipo Statement para poder manipular la base de datos
@@ -190,9 +190,9 @@ public class LibrosDao {
 			
 			//Se crea un bucle donde comenzara por el primer registro de la tabla
 			while(rs.next()) {
-				//Se inicializa el objeto car anteriormente 
+				//Se inicializa el objeto lib anteriormente 
 				//creado que para guardar lo que se genero como busqueda en 
-				//la base de datos llamado car
+				//la base de datos 
 				lib = new Libros();
 				
 				lib.setTipoProducto(rs.getInt("tipoProducto"));
@@ -223,8 +223,8 @@ public class LibrosDao {
 	
 
 	
-	//tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto
-	//Metodo para actualizar un carro existente en base de datos
+	
+	//Metodo para actualizar un libro existente en base de datos
 	
 	public boolean actualizarLibro(Libros libro) {
 		
@@ -278,8 +278,8 @@ public class LibrosDao {
 
 	
 	
-	//tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto
-	//Metodo para actualizar un carro existente en base de datos
+	
+	//Metodo para eliminar un registro de libro existente en base de datos
 	
 	public boolean eliminarLibro(Libros libro) {
 		
@@ -329,8 +329,9 @@ public class LibrosDao {
 	
 	
 	
-	//tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto
-	//Metodo para actualizar un carro existente en base de datos
+	
+	//Metodo para vender  un libro existente en base de datos, se le modifica el campo cantidad solamente
+	//segun la referencia que se pasa por el objeto libro
 	
 	public boolean restarCantLibro(Libros libro) {
 		

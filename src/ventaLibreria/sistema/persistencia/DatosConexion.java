@@ -1,7 +1,7 @@
 package ventaLibreria.sistema.persistencia;
 
 
-//Libreria
+//Esta clase contiene los datos para poder autenticarse dentro de una base de datos
 public class DatosConexion {
 
 	
