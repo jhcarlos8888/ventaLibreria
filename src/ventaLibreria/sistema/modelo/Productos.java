@@ -4,7 +4,7 @@ public class Productos {
 
 	// Atributos de los productos de la libreria
 
-	private String tipoProducto;
+	private int tipoProducto;
 
 	private String nombreProducto;
 
@@ -21,7 +21,7 @@ public class Productos {
 	// Creacion de constructor de clase Productos
 
 	public Productos() {
-		this.tipoProducto = new String();
+		this.tipoProducto = 0;
 		this.nombreProducto = new String();
 		this.cantidadProducto = 0;
 		this.precioProducto = 0f;
@@ -31,7 +31,7 @@ public class Productos {
 		
 	}
 
-	public Productos(String tipoProducto, String nombreProducto, int cantidadProducto, float precioProducto,
+	public Productos(int tipoProducto, String nombreProducto, int cantidadProducto, float precioProducto,
 			String autorProducto, int edicionProducto, String referenciaProducto) {
 
 		super();
@@ -48,11 +48,11 @@ public class Productos {
 
 	// Creacion de getters and setters atributos de clase Producto
 
-	public String getTipoProducto() {
+	public int getTipoProducto() {
 		return tipoProducto;
 	}
 
-	public void setTipoProducto(String tipoProducto) {
+	public void setTipoProducto(int tipoProducto) {
 		this.tipoProducto = tipoProducto;
 	}
 

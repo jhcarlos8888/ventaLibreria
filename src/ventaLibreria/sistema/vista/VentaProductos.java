@@ -77,35 +77,28 @@ public class VentaProductos {
 		IBiblioteca operacionesProductos = new BibliotecaImpl();
 
 		
-		
-		// Libros agregados cuando arranca el programa
-
-		operacionesProductos.adicionarLibro("Libro", "Cien años de Soledad", 7, 87000f,"Juan Carlos Herrera Blandon", 2021, "Ref523");
-		operacionesProductos.adicionarLibro("Libro", "El Coronel no tiene quien le escriba", 3, 36000f,"Juan Carlos Herrera Blandon", 2000, "Ref524");
-		operacionesProductos.adicionarLibro("Libro", "La Odisea", 5, 125000f, "Juan Carlos Herrera Blandon",1994, "Ref525");
+		//Se adiciona a la lista lstLibros todos los registros que se tienen en la base de Datos MariaDB
+		List<Libros> lstLibros = operacionesProductos.adicionarBaseLibrosToList(1);
 		
 		
-		//Luego de agregar los libros por defecto llamamos la lista que se encuentra en la clase inventario para poder manipularla
-		List<Libros> lstLibros  = operacionesProductos.obtenerInventarioLibros();
 		
-
+		
+		
 		
 		// Revistas agregadas cuando arranca el programa
 		
-		operacionesProductos.adicionarRevista("Revista", "National Geographi", 3, 26000f, "Hernesto Henao",2015, "Ref125");
-		operacionesProductos.adicionarRevista("Revista", "Motor", 5, 15000f, "Hernesto Henao",2023, "Ref126");
-
+		operacionesProductos.adicionarRevista(2, "National Geographi", 3, 26000f, "Hernesto Henao",2015, "REF125");
+		operacionesProductos.adicionarRevista(2, "Motor", 5, 15000f, "Hernesto Henao",2023, "REF126");
+		
 		
 		//Luego se llama la lista para poder manipularla dentro del main
 		List<Revistas> lstRevistas = operacionesProductos.obtenerInventarioRevistas();
 		
-		
-		
 
 		
 		// Articulos agredados cuando inicia el programa
-		operacionesProductos.adicionarArtCientifico("ArtCienficico", "Paper sobre Combustión Interna", 2,65000f, "Franco Ruiz", 2013,"Ref2548");
-		operacionesProductos.adicionarArtCientifico("ArtCienficico","Paper Programación orienta a Objetos ", 3, 48000f, "Franco Ruiz", 2013,"Ref2549");
+		operacionesProductos.adicionarArtCientifico(3, "Paper sobre Combustión Interna", 2,65000f, "Franco Ruiz", 2013,"Ref2548");
+		operacionesProductos.adicionarArtCientifico(3,"Paper Programación orienta a Objetos ", 3, 48000f, "Franco Ruiz", 2013,"Ref2549");
 	
 		
 		//Se llama la lista de la clase ArtCientificos para poder manipularla 
@@ -180,8 +173,8 @@ public class VentaProductos {
 						System.out.println("Nuevo registro de libro");
 						System.out.println();
 						
-						System.out.println("Tipo de Producto: ");
-						String tipoProducto = new Scanner(System.in).nextLine();
+						System.out.println("Ingrese numero 1 para crear un producto libro en base de datos: ");
+						int tipoProducto = new Scanner(System.in).nextInt();
 						
 						System.out.println("Nombre de Libro: ");
 						String nombreProducto = new Scanner(System.in).nextLine();
@@ -214,10 +207,11 @@ public class VentaProductos {
 
 					case 2:
 						
-						
-						
+						//Se injecta la lista con datos actualizados
+						lstLibros = operacionesProductos.adicionarBaseLibrosToList(1);	
+					
 						// Opcion para modificar libro
-
+						
 						System.out.println();
 						System.out.println("Modificar Libro Existente");
 						System.out.println();
@@ -225,11 +219,9 @@ public class VentaProductos {
 						System.out.println("Listado de libros actuales, cantidad: " + lstLibros.size()); 
 						System.out.println();
 						
-							
-						//System.out.println("Listado desde la interfaz ");
 						
-						//operacionesProductos.recorrerLibros();
-							
+						
+						
 					     System.out.println("Listado desde la interfaz Final");
 						
 							for(int i = 0; i < lstLibros.size(); i++) { 
@@ -238,34 +230,40 @@ public class VentaProductos {
 								  System.out.println("Campo " + i+"," + " Tipo Producto: "+ totalLibros.getTipoProducto()+"," + " Nombre: " + totalLibros.getNombreProducto()+"," + " Cantidad de libros: " +totalLibros.getCantidadProducto()+"," + " Precio: " + totalLibros.getPrecioProducto()+"," + " Autor: " + totalLibros.getAutorProducto()+"," + " Edicion: " + totalLibros.getEdicionProducto()+"," + " Referencia: " +totalLibros.getReferenciaProducto()+ " ");   
 								  System.out.println(); 
 							   }
+							
 									
 						
 						if(lstLibros.size()>0) {
 							
 							  System.out.println(); 
-							  System.out.println("Indique el numero del campo donde se encuentra el libro a modificar"); 
+							  System.out.println("Observe cual es la referencia del producto a modificar"); 
 							  System.out.println();
 							  
+							  //tipoProducto, nombreProducto, cantidadProducto,precioProducto, autorProducto, edicionProducto, referenciaProducto
 							  
-							  
-							  int campolibroModificar = new Scanner(System.in).nextInt();
+							  System.out.println("Ingrese la referencia del producto a modificar: "); 
+							  String refProducto = new Scanner(System.in).nextLine();
 							  
 							
-							  System.out.println("Nombre de Libro: "); 
+							  System.out.println("nuevo nombre de Libro: "); 
 							  String newNombreProducto = new Scanner(System.in).nextLine();
 							  
-							  System.out.println("Cantidad de libros a agregar: "); 
+							  System.out.println("nueva cantidad de libros a agregar: "); 
 							  int newCantidadProducto = new Scanner(System.in).nextInt();
 							  
 							  System.out.println("Cual es el precio del libro: "); 
 							  float newPrecioProducto = new Scanner(System.in).nextFloat();
 							  
+							  System.out.println("Nuevo autor de Libro: "); 
+							  String newAutorProducto = new Scanner(System.in).nextLine();
 							  
-							  lstLibros.get(campolibroModificar).setNombreProducto(newNombreProducto);
+							  System.out.println("Nueva edicion del libro: "); 
+							  int newEdicionProducto = new Scanner(System.in).nextInt();
 							  
-							  lstLibros.get(campolibroModificar).setCantidadProducto(newCantidadProducto);
 							  
-							  lstLibros.get(campolibroModificar).setPrecioProducto(newPrecioProducto);
+							  operacionesProductos.actualizarLibro(newNombreProducto, newCantidadProducto, newPrecioProducto, newAutorProducto, newEdicionProducto, refProducto);
+
+							  
 							  
 							  
 							  System.out.println(); 
@@ -276,12 +274,14 @@ public class VentaProductos {
 							System.out.println("No tenemos ningun libro a Modificar, ingrese por favor algun libro");
 						}
 						
-
+					
 						  
 						break;
 
 					case 3:
-
+						
+						  //Se injecta la lista con datos actualizados
+						  lstLibros = operacionesProductos.adicionarBaseLibrosToList(1);	
 						
 						  //Opcion para eliminar un registro o nodo completo de un objeto libro
 						  System.out.println();
@@ -299,19 +299,21 @@ public class VentaProductos {
 							
 						if(lstLibros.size()>0) {
 							  System.out.println(); 
-							  System.out.println("Indique el numero del campo donde se encuentra el libro a eliminar"); 
+							  System.out.println("Indique la referencia del producto que se requiere eliminar"); 
 							  System.out.println();
 							  
 							  
 							  
 							  
-							  int campolibroEliminar = new Scanner(System.in).nextInt();
+							  String referencialibroEliminar = new Scanner(System.in).nextLine();
 							  
 							  System.out.println(); 
-							  System.out.println("Libro eliminado de la base, "+ "Registro "+lstLibros.get(campolibroEliminar));
+							  System.out.println("Libro eliminado de la base");
 							  
+							  operacionesProductos.eliminarLibro(referencialibroEliminar);
+							
 							  
-							  lstLibros.remove(campolibroEliminar); 
+							  //lstLibros.remove(campolibroEliminar); 
 							  System.out.println();
 							  
 						}else {
@@ -324,6 +326,9 @@ public class VentaProductos {
 
 					case 4:
 						// Opcion para ver el inventario de libros
+						
+						//Se injecta lista con datos desde la base de datos
+						lstLibros = operacionesProductos.adicionarBaseLibrosToList(1);
 						
 						System.out.println();
 						System.out.println("Inventario de Libros");
@@ -355,10 +360,14 @@ public class VentaProductos {
 					case 5:
 
 						
-						  //Opcion para vender un libro - Se descuenta la cantidad de los libros
-						  
+						 //Opcion para vender un libro - Se descuenta la cantidad de los libros
+						
+						 //Se injecta lista con datos desde la base de datos
+						 lstLibros = operacionesProductos.adicionarBaseLibrosToList(1);
+
+						
 						  System.out.println(); 
-						  System.out.println("Venta de libros, seleccione el campo del libro que requiere vender"); 
+						  System.out.println("Venta de libros, revise la referencia que desea vender"); 
 						  System.out.println();
 						  System.out.println("Listado de libros actuales, cantidad: " + lstLibros.size()); 
 						  System.out.println();
@@ -373,15 +382,16 @@ public class VentaProductos {
 								   }
 								
 								
+								
 						if(lstLibros.size()>0) {
 							
 							  System.out.println(); 
-							  System.out.println("Indique el numero del campo: ");
+							  System.out.println("Indique la referencia del producto que desea Vender");
 							  System.out.println();
 							  
 							 
 							  
-							  	  int campolibroVender = new Scanner(System.in).nextInt();
+							  	  String refVentaLibro = new Scanner(System.in).nextLine();
 							  
 							 
 								  System.out.println();
@@ -391,20 +401,12 @@ public class VentaProductos {
 								  int cantidadProductoVender = new Scanner(System.in).nextInt();
 								  
 								  
-								  int cantidadActualLibro = lstLibros.get(campolibroVender).getCantidadProducto();
+								  operacionesProductos.venderLibro(refVentaLibro, cantidadProductoVender);
 								  
 								  
-								  
-								  int operacionRestaLibro = (cantidadActualLibro - cantidadProductoVender);
-								  
-								  
-								  //Asignacion de nueva cantidad de libros en la lista libros segun el campos seleccionado
-								  lstLibros.get(campolibroVender).setCantidadProducto(operacionRestaLibro);
-								  
-								  
-								  System.out.println("Le quedan " + operacionRestaLibro + " Libros, del producto " + lstLibros.get(campolibroVender).getNombreProducto());  
+								 // System.out.println("Le quedan " + operacionRestaLibro + " Libros, del producto " + lstLibros.get(campolibroVender).getNombreProducto());  
 								  System.out.println();
-								  System.out.println("Libro vendido de la base, Registro de venta: "+lstLibros.get(campolibroVender)); 
+								  System.out.println("Libro vendido de la base"); 
 								  System.out.println(); 
 							  
 
@@ -473,8 +475,8 @@ public class VentaProductos {
 						System.out.println("Nuevo registro de Revista");
 						System.out.println();
 						
-						System.out.println("Cual es el tipo de Producto: ");
-						String tipoProducto = new Scanner(System.in).nextLine();
+						System.out.println("Ingrese numero 2 para ingresar una revista en base de datos ");
+						int tipoProducto = new Scanner(System.in).nextInt();
 						
 						System.out.println("Nombre de Revista: ");
 						String nombreProducto = new Scanner(System.in).nextLine();
@@ -738,8 +740,8 @@ public class VentaProductos {
 						System.out.println();
 						
 						
-						System.out.println("Ingrese el tipo de producto: ");
-						String tipoProducto = new Scanner(System.in).nextLine();
+						System.out.println("Ingrese el numero 3 para registrar un articulo en base de datos ");
+						int tipoProducto = new Scanner(System.in).nextInt();
 						
 						System.out.println("Nombre de articulo cientifico: ");
 						String nombreProducto = new Scanner(System.in).nextLine();

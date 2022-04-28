@@ -1,5 +1,6 @@
 package ventaLibreria.sistema.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ventaLibreria.sistema.logica.GestionProducto;
@@ -41,7 +42,7 @@ public class BibliotecaImpl implements IBiblioteca {
 	//para poder ser agregada en el invetario de almacenamiento lista
 	
 	@Override
-	public void adicionarLibro(String tipoProducto, String nombreProducto, int cantidadProducto, float precioProducto,
+	public void adicionarLibro(int tipoProducto, String nombreProducto, int cantidadProducto, float precioProducto,
 			String autorProducto, int edicionProducto, String referenciaProducto) {
 		
 			//Esta variable libro sera igual a una operacion dentro de la clase gestionproducto y llamara al metodo crearLibro donde le pasaremos como parametros
@@ -52,22 +53,58 @@ public class BibliotecaImpl implements IBiblioteca {
 			//al metodo IngresarLibro, entonces con esto se nos agregara a la lista de libros que esta creada en la clase inventariolibreria
 			inventariolibreria.IngresarLibro(libro);
 			
-	
+
 		
 	}
 
 
+	//Este metodo se comunicara con la clase Gestion de Producto para obtener una lista con 
+	//todos los registros de base de datos que sean libros
+	@Override
+	public List<Libros> adicionarBaseLibrosToList(int tipoProducto) {
+		
+		//Se crea una lista para guardar los registros 
+		List<Libros> lstLibros = new ArrayList<Libros>();
+		
+		//la lista sera igual a una operacion que se ecuentra en gestionproducto
+		 lstLibros = gestionproducto.crearlstLibrosOFBase(tipoProducto);
+		
+		 //Retornamos una lista de tipo Libros
+		return lstLibros;
+	}
+	
+	
+
+	@Override
+	public Libros actualizarLibro(String nombreProducto, int cantidadProducto, float precioProducto,
+			String autorProducto, int edicionProducto, String referenciaProducto) {
+		
+		Libros libro = gestionproducto.modificarLibro( nombreProducto,  cantidadProducto,  precioProducto,
+			autorProducto, edicionProducto,  referenciaProducto);
+		
+		return libro;
+	}
+	
+	
+	
+	@Override
+	public Libros eliminarLibro(String referenciaProducto) {
+		
+		Libros libro = gestionproducto.quitarLibro(referenciaProducto);
+		
+		
+		return libro;
+	}
+
 
 	
-	//Con este metodo solicito como retorno una lista llamada List<Libros> que se encuentra dentro de la clase inventariolibreria
-	//esta entonces me retorna la clase inventariolibreria e ingresa al metodo obtener libros para que me entregue la lista completa
-	//de todos los datos que se vallan agregando dentro de esa lista 
 	@Override
-	public List<Libros> obtenerInventarioLibros() {
+	public Libros venderLibro(String referenciaProducto, int cantidadVenta) {
 		
 		
+		Libros libro = gestionproducto.ventaLibro(referenciaProducto,cantidadVenta);
 		
-		return inventariolibreria.obtenerLibros();
+		return libro;
 	}
 
 	
@@ -96,7 +133,7 @@ public class BibliotecaImpl implements IBiblioteca {
 
 	//Metodo para agregar un objeto revistas a el inventario de la libreria
 	@Override
-	public void adicionarRevista(String tipoProducto, String nombreProducto, int cantidadProducto, float precioProducto,
+	public void adicionarRevista(int tipoProducto, String nombreProducto, int cantidadProducto, float precioProducto,
 			String autorProducto, int edicionProducto, String referenciaProducto) {
 		
 		Revistas revista = gestionproducto.crearRevista(tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto);
@@ -122,7 +159,7 @@ public class BibliotecaImpl implements IBiblioteca {
 	
 	//Se agrega un articulo cientifico
 	@Override
-	public void adicionarArtCientifico(String tipoProducto, String nombreProducto, int cantidadProducto,
+	public void adicionarArtCientifico(int tipoProducto, String nombreProducto, int cantidadProducto,
 			float precioProducto, String autorProducto, int edicionProducto, String referenciaProducto) {
 		
 		ArtCientificos articuloCientifico = gestionproducto.crearArticuloCientifico(tipoProducto, nombreProducto, cantidadProducto, precioProducto, autorProducto, edicionProducto, referenciaProducto);
@@ -145,13 +182,31 @@ public class BibliotecaImpl implements IBiblioteca {
 
 
 
-	@Override
-	public List<Libros> recorrerLibros() {
-		// TODO Auto-generated method stub
-		
-		
-		return inventariolibreria.recorrerListaLibros();
-	}
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
