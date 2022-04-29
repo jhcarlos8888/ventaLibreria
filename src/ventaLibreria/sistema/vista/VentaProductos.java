@@ -78,7 +78,7 @@ public class VentaProductos {
 
 		
 		//Se adiciona a la lista lstLibros todos los registros que se tienen en la base de Datos MariaDB
-		List<Libros> lstLibros = operacionesProductos.adicionarBaseLibrosToList(1);
+		List<Libros> lstLibros; //= operacionesProductos.adicionarBaseLibrosToList(1);
 		
 		
 		
@@ -107,7 +107,7 @@ public class VentaProductos {
 		
 		// -------------------------Comienzo de Menus para realizar operaciones--------------
 
-
+		
 		
 		// Metodo do-While para mostrar siempre el menu Principal
 		do {
